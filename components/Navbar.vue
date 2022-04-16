@@ -26,9 +26,14 @@
               FAQ
             </nuxt-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!hasToken">
             <nuxt-link to="/login" active-class="active" class="nav-link">
               Login
+            </nuxt-link>
+          </li>
+          <li class="nav-item" v-else>
+            <nuxt-link to="#" class="nav-link" @click.prevent="logout">
+              Logout
             </nuxt-link>
           </li>
         </ul>
@@ -36,3 +41,19 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    hasToken() {
+      return this.$store.getters.hasToken;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/login");
+    },
+  },
+};
+</script>

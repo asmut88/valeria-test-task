@@ -12,6 +12,10 @@ export default {
     return /^\d+$/.test(params.id);
   },
   async asyncData({ $axios, params }) {
+    /*
+    данные о пользователе не храним в store,
+    поскольку хотим всегда видеть актуальную информацию о пользоавателе
+    */
     const user = await $axios.$get(
       "https://jsonplaceholder.typicode.com/users/" + params.id
     );

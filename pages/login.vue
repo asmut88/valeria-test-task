@@ -1,6 +1,6 @@
 <template>
   <section>
-    <form>
+    <form @submit.prevent="onSubmit">
       <h1>Login page</h1>
 
       <div class="form-group">
@@ -19,6 +19,14 @@
 <script>
 export default {
   layout: "empty",
+  methods: {
+    onSubmit() {
+      this.$store.dispatch('login')
+
+      /**Если успешно залогилинись, тогда переходим на главную */
+      this.$router.push('/')
+    }  
+  }
 };
 </script>
 

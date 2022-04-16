@@ -19,6 +19,10 @@ export default {
     ]
   },
 
+  loading: [
+    {color: 'blue'}
+  ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/node_modules/bootstrap/dist/css/bootstrap.min.css'

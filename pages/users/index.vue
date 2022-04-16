@@ -12,15 +12,23 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const users = await $axios.$get(
-      'https://jsonplaceholder.typicode.com/users'
-    );
-    return { users };
+  async fetch({ store }) {
+    if (store.getters["users/users"]?.length === 0) {
+      /*
+       *На стороне сервера Nuxt выполнит запрос
+       *и положит данные о пользователях в store
+       */
+      await store.dispatch("users/fetch");
+    }
   },
   data: () => ({
     pageTitle: "Users page",
   }),
+  computed: {
+    users() {
+      return this.$store.getters["users/users"];
+    },
+  },
   methods: {
     openUser(user) {
       this.$router.push("/users/" + user.id);
