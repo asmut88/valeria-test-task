@@ -21,6 +21,7 @@ export default {
   layout: "empty",
   methods: {
     onSubmit() {
+
       this.$store.dispatch('login')
 
       /**Если успешно залогилинись, тогда переходим на главную */

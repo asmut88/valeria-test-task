@@ -1,10 +1,8 @@
 export const state = () => ({
-
     token: null
-
 })
 
-export const mutation = {
+export const mutations = {
     setToken(state, token) {
         state.token = token
     },
@@ -14,7 +12,7 @@ export const mutation = {
     }
 }
 
-export const action = {
+export const actions = {
     login({ commit }) {
         commit('setToken', 'truetoken')
     },

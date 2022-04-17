@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      Hello world
+      Главная страница
     </h1>
   </div>
 </template>

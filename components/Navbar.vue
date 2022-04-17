@@ -32,9 +32,7 @@
             </nuxt-link>
           </li>
           <li class="nav-item" v-else>
-            <nuxt-link to="#" class="nav-link" @click.prevent="logout">
-              Logout
-            </nuxt-link>
+            <a @click.prevent="logout" class="nav-link" href="#" > Logout </a>
           </li>
         </ul>
       </div>
